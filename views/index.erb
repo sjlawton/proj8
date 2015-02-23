@@ -1,0 +1,18 @@
+<html>
+	<head>
+	</head>
+  <body>
+		<h1>Holidays in this month</h1>
+    <% @holidays.each do |day| %>
+      <% day.each do |holiday| %>
+         <p><%= holiday['name'] %> on <%= holiday['date'] %></p>
+      <% end %>
+    <% end %>
+		<h1>Holidays in my birthmonth, Nov 1992, USA</h1>
+    <% @birthdays.each do |day| %>
+      <% day.each do |holiday| %>
+         <p><%= holiday['name'] %> on <%= holiday['date'] %></p>
+      <% end %>
+    <% end %>
+  </body>
+</html>
