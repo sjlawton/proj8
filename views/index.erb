@@ -1,18 +1,27 @@
 <html>
-	<head>
-	</head>
+  <head>
+  </head>
   <body>
-		<h1>Holidays in this month</h1>
-    <% @holidays.each do |day| %>
-      <% day.each do |holiday| %>
-         <p><%= holiday['name'] %> on <%= holiday['date'] %></p>
+    <h1>Holidays in this month</h1>
+    <form>
+    Month:
+    <input name='month' type='number' value="<%= @month%>">
+    Year:
+    <input name='year' type='number' value="<%= @year%>">
+    Country:
+    <input name='country' type='string' value="<%= @country%>">
+    <button type='submit'>Display</button>
+    </form>
+    <% if @holidays != 'Error, bad input' %>
+     <% @holidays.each do |day| %>
+       <% day.each do |holiday| %>
+          <p>
+           <%= holiday['name'] %> on <%= holiday['date'] %>
+          </p>
+        <% end %>
       <% end %>
-    <% end %>
-		<h1>Holidays in my birthmonth, Nov 1992, USA</h1>
-    <% @birthdays.each do |day| %>
-      <% day.each do |holiday| %>
-         <p><%= holiday['name'] %> on <%= holiday['date'] %></p>
-      <% end %>
-    <% end %>
+    <% else %>
+    <%= @holidays %>
+    <% end %> 
   </body>
 </html>
